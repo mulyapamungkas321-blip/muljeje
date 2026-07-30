@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy National Girlfriend Day 🌿💖</title>
+  <meta name="description" content="Spesial untuk pacar tersayang di Hari Girlfriend Nasional. Website perjalanan romantis bertahap!">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/index-mL70GPOV.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DT_4m7U4.css">
+</head>
+<body>
+
+  <!-- Splash Screen Overlay / Music Player -->
+  <div class="splash-overlay" id="splash-overlay">
+    <div class="splash-content">
+      <div class="splash-album-wrapper">
+        <img src="./assets/logobazzi-C41HQqTP.jpg" alt="Album Cover" class="splash-album-art" id="splash-album-art" />
+      </div>
+      <button class="splash-play-btn" id="splash-play-btn">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+          <polygon points="6,4 20,12 6,20" />
+        </svg>
+      </button>
+      <p class="splash-text">KLIK UNTUK MULAI</p>
+    </div>
+  </div>
+
+  <audio id="bgm" src="./BeautifullBazzii.mp3" loop preload="auto"></audio>
+
+  <!-- Top Header with Step Indicator & Controls -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="nav-icon">🌿</span>
+      <span class="nav-title">Girlfriend Day Special</span>
+    </div>
+    
+    <!-- Step Journey Tracker -->
+    <div class="step-journey-tracker">
+      <div class="step-item active" data-step="1" id="step-dot-1">
+        <span class="step-num">1</span>
+        <span class="step-text">Beranda</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item" data-step="2" id="step-dot-2">
+        <span class="step-num">2</span>
+        <span class="step-text">Surat Cinta</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item" data-step="3" id="step-dot-3">
+        <span class="step-num">3</span>
+        <span class="step-text">Galeri Foto</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item" data-step="4" id="step-dot-4">
+        <span class="step-num">4</span>
+        <span class="step-text">Kode QR</span>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <button class="petal-toggle-btn" id="petal-shower-btn" title="Hujani Bunga 🌸">
+        <span>🌸</span>
+        <span class="btn-text">Sebar Bunga</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Petal & Heart Floating Canvas Overlay -->
+  <canvas id="petal-canvas"></canvas>
+
+  <!-- MAIN SEQUENTIAL PAGES CONTAINER -->
+  <main class="pages-wrapper">
+
+    <!-- PAGE 1: BERANDA / SAMBUTAN -->
+    <section class="page-step active" id="page-1">
+      <div class="hero-section">
+        <!-- Floating Floral Background Accents -->
+        <div class="hero-bg-glow glow-sage"></div>
+        <div class="hero-bg-glow glow-pink"></div>
+
+        <!-- Animated Corner Flowers (bungarmv.png) -->
+        <div class="corner-flower flower-top-left sway-animation">
+          <img src="./assets/bungarmv-DETIXpQd.png" alt="Bunga Hiasan" class="flower-img-shadow" />
+        </div>
+        <div class="corner-flower flower-bottom-right sway-reverse-animation">
+          <img src="./assets/bungarmv-DETIXpQd.png" alt="Bunga Hiasan" class="flower-img-shadow" />
+        </div>
+
+        <div class="hero-content">
+          <div class="tag-badge">
+            <span class="badge-dot"></span>
+            <span>Halaman 1 dari 4 • Girlfriend Day</span>
+          </div>
+
+          <h1 class="hero-title">
+            Happy Girlfriend Day, <br>
+             <span class="highlight-pink">jeje 💖</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Terima kasih telah mewarnai setiap hariku dengan senyumanmu yang manis, kehangatanmu, dan kehadiranmu yang selalu menenangkan. Website kecil ini aku buat khusus untuk merayakan betapa indahnya dirimu ✨
+          </p>
+
+          <!-- Hero Flower Centerpiece -->
+          <div class="hero-flower-centerpiece">
+            <div class="flower-glow-ring"></div>
+            <div class="flower-interactive-card" id="main-flower-card">
+              <img src="./assets/bungarmv-DETIXpQd.png" alt="Bunga Cantik Untukmu" class="center-flower-img" id="hero-flower-img" />
+              <div class="flower-card-tag">
+                <span>🌸 Sentuh Bunga Ini! ✨</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Action Button -->
+          <div class="page-navigation-footer margin-top-lg">
+            <button class="btn-primary btn-large go-next-btn" data-goto="2">
+              <span>Lanjut Buka Surat Cinta 💌 →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: BUKA SURAT CINTA -->
+    <section class="page-step" id="page-2">
+      <div class="love-letter-section">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Halaman 2 dari 4</span>
+          <h2 class="section-title">Surat Khusus Untukmu 💌</h2>
+          <div class="title-underline"></div>
+        </div>
+
+        <div class="envelope-container">
+          <div class="envelope-wrapper" id="envelope-wrapper">
+            <div class="envelope" id="envelope">
+              <div class="envelope-back"></div>
+              <div class="letter" id="letter">
+                <div class="letter-stamp">🌿💖</div>
+                <h3 class="letter-heading">Untuk jeje yang Paling Berharga,</h3>
+                <div class="letter-body">
+                  <p>
+                    Happy National Girlfriend Day! 🌸
+                  </p>
+                  <p>
+                    Di antara miliaran orang di bumi ini, aku bersyukur banget bisa kenal dan berjalan bareng kamu. Kamu itu seperti kombinasi paling sempurna antara tawa yang hangat, perhatian yang tulus, dan paras manis yang nggak pernah gagal bikin hariku terasa jauh lebih baik.
+                  </p>
+                  <p>
+                    Makasih ya sudah sabar, sudah selalu mendengarkan, dan sudah jadi rumah yang paling nyaman. Hari ini bukan cuma tentang sebuah peringatan biasa, tapi tentang merayakan betapa spesialnya kamu buat aku.
+                  </p>
+                  <p class="letter-quote">
+                    "Jika aku harus memilih momen terbaik dalam hidupku, itu adalah setiap detik yang kulewatkan bersamamu."
+                  </p>
+                  <div class="letter-footer">
+                    <span>Dengan Seluruh Cintaku,</span>
+                    <span class="signature">Pasangan Terbaikmu 💕</span>
+                  </div>
+                </div>
+              </div>
+              <div class="envelope-top-flap"></div>
+              <div class="wax-seal" id="wax-seal">
+                <span class="seal-icon">🌸</span>
+                <span class="seal-text">Open</span>
+              </div>
+            </div>
+          </div>
+          <p class="envelope-hint">✨ Klik amplop atau segel bunga untuk membuka suratnya! ✨</p>
+        </div>
+
+        <!-- Sweet Tabbed Promises -->
+        <div class="letter-tabs-wrapper">
+          <div class="tab-buttons">
+            <button class="subtab-btn active" data-tab="special">Kenapa Kamu Spesial 💖</button>
+            <button class="subtab-btn" data-tab="promises">Janji Manisku 🌿</button>
+            <button class="subtab-btn" data-tab="wishes">Doa & Harapan ✨</button>
+          </div>
+          <div class="tab-content-card glass-card">
+            <div class="subtab-pane active" id="tab-special">
+              <div class="pill-grid">
+                <div class="feature-pill"><span>✨ Senyumanmu bikin adem</span></div>
+                <div class="feature-pill"><span>🌸 Selalu bisa bikin nyaman</span></div>
+                <div class="feature-pill"><span>🌿 Tatapan matanya nenangin</span></div>
+                <div class="feature-pill"><span>💖 Perhatian sama hal-hal kecil</span></div>
+                <div class="feature-pill"><span>🌷 Suaranya selalu dinanti</span></div>
+                <div class="feature-pill"><span>💫 Humor dan tawanya nular</span></div>
+              </div>
+            </div>
+            <div class="subtab-pane" id="tab-promises">
+              <ul class="check-list">
+                <li><span class="check-icon">🌿</span> Selalu ada di saat kamu butuh sandaran atau sekadar pendengar.</li>
+                <li><span class="check-icon">💖</span> Menghargai dan merayakan setiap pencapaian sekecil apa pun darimu.</li>
+                <li><span class="check-icon">🌸</span> Terus berusaha bikin kamu tersenum dan merasa dicintai setiap hari.</li>
+                <li><span class="check-icon">🍦</span> Selalu siap beliin makanan manis kalau mood-mu lagi butuh booster!</li>
+              </ul>
+            </div>
+            <div class="subtab-pane" id="tab-wishes">
+              <p class="wishes-text">
+                Semoga kamu selalu dilimpahi kebahagiaan, kesehatan, dan ketenangan pikiran. Semoga semua mimpi dan cita-citamu tercapai, dan semoga aku bisa terus mendampingi setiap langkah indahmu ke depan. Tetaplah jadi dirimu yang manis dan penuh sinar terang ya! ✨🌸
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page Navigation Buttons (Back & Next) -->
+        <div class="page-navigation-footer">
+          <button class="btn-secondary go-prev-btn" data-goto="1">
+            <span>← Kembali ke Beranda</span>
+          </button>
+          <button class="btn-primary go-next-btn" data-goto="3">
+            <span>Lanjut Lihat Galeri Foto 📸 →</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: GALERI FOTO MOMEN SPESIAL -->
+    <section class="page-step" id="page-3">
+      <div class="gallery-section">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Halaman 3 dari 4</span>
+          <h2 class="section-title">Galeri Foto 📸</h2>
+          <div class="title-underline"></div>
+          <p class="section-desc">Setiap foto menyimpan cerita manis, tawa, dan kenangan tak terlupakan.</p>
+        </div>
+
+        <div class="polaroid-grid">
+          <!-- Photo Card 1 -->
+          <div class="polaroid-card" data-img="./jeje.jpg" data-caption="Bawanya Tawa Bahagia 🌸" data-date="Momen Cantik">
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/jeje-ZnZWs_j2.jpg" alt="Momen Spesial 1" loading="lazy" />
+              <div class="polaroid-overlay">
+                <span class="zoom-icon">🔍 Perbesar</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">
+              <span class="caption-text">Bawanya Tawa Bahagia 🌸</span>
+              <span class="caption-date">Always shining bright</span>
+            </div>
+            <div class="polaroid-tape"></div>
+          </div>
+
+          <!-- Photo Card 2 -->
+          <div class="polaroid-card" data-img="./jeje1.jpg" data-caption="Wajah Paling Menenangkan 🌿" data-date="Momen Manis">
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/jeje1-B2AQSWZ-.jpg" alt="Momen Spesial 2" loading="lazy" />
+              <div class="polaroid-overlay">
+                <span class="zoom-icon">🔍 Perbesar</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">
+              <span class="caption-text">Wajah Paling Menenangkan 🌿</span>
+              <span class="caption-date">Pure happiness</span>
+            </div>
+            <div class="polaroid-tape"></div>
+          </div>
+
+          <!-- Photo Card 3 -->
+          <div class="polaroid-card" data-img="./jeje2.jpg" data-caption="Cantiknya Senyuman Ini ✨" data-date="Momen Hangat">
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/jeje2-BqAmsiK-.jpg" alt="Momen Spesial 3" loading="lazy" />
+              <div class="polaroid-overlay">
+                <span class="zoom-icon">🔍 Perbesar</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">
+              <span class="caption-text">Cantiknya Senyuman Ini ✨</span>
+              <span class="caption-date">Peaceful vibes</span>
+            </div>
+            <div class="polaroid-tape"></div>
+          </div>
+
+          <!-- Photo Card 4 -->
+          <div class="polaroid-card" data-img="./jeje3.jpg" data-caption="Potret Bidadari ✨" data-date="Momen Istimewa">
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/jeje3-DXNqktP7.jpg" alt="Momen Spesial 4" loading="lazy" />
+              <div class="polaroid-overlay">
+                <span class="zoom-icon">🔍 Perbesar</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">
+              <span class="caption-text">Potret Bidadari ✨</span>
+              <span class="caption-date">So gorgeous</span>
+            </div>
+            <div class="polaroid-tape"></div>
+          </div>
+
+          <!-- Photo Card 5 -->
+          <div class="polaroid-card" data-img="./jeje4.jpg" data-caption="Cantik Natural Setiap Hari 🌷" data-date="Momen Bahagia">
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/jeje4-DFZ5GYxb.jpg" alt="Momen Spesial 5" loading="lazy" />
+              <div class="polaroid-overlay">
+                <span class="zoom-icon">🔍 Perbesar</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">
+              <span class="caption-text">Cantik Natural Setiap Hari 🌷</span>
+              <span class="caption-date">Unforgettable memory</span>
+            </div>
+            <div class="polaroid-tape"></div>
+          </div>
+
+          <!-- Photo Card 6 -->
+          <div class="polaroid-card" data-img="./jeje5.jpg" data-caption="Bahagia Sederhana nan Anggun 💖" data-date="Momen Abadi">
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/jeje5-BGdFrZ_l.jpg" alt="Momen Spesial 6" loading="lazy" />
+              <div class="polaroid-overlay">
+                <span class="zoom-icon">🔍 Perbesar</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">
+              <span class="caption-text">Bahagia Sederhana nan Anggun 💖</span>
+              <span class="caption-date">Sweet moments</span>
+            </div>
+            <div class="polaroid-tape"></div>
+          </div>
+        </div>
+
+        <!-- Galeri Roblox -->
+        <div class="gallery-subsection">
+          <h3 class="gallery-subtitle">
+            <span class="subtitle-badge">🎮</span>
+            Galeri Roblox
+          </h3>
+          <div class="polaroid-grid">
+            <div class="polaroid-card" data-img="./12321321.png" data-caption="" data-date="">
+              <div class="polaroid-img-wrapper">
+                <img src="./assets/12321321-Ct8jB3nN.png" alt="Roblox 1" loading="lazy" />
+                <div class="polaroid-overlay">
+                  <span class="zoom-icon">🔍 Perbesar</span>
+                </div>
+              </div>
+              <div class="polaroid-tape"></div>
+            </div>
+            <div class="polaroid-card" data-img="./ASDASD.png" data-caption="" data-date="">
+              <div class="polaroid-img-wrapper">
+                <img src="./assets/ASDASD-BbETaVdq.png" alt="Roblox 2" loading="lazy" />
+                <div class="polaroid-overlay">
+                  <span class="zoom-icon">🔍 Perbesar</span>
+                </div>
+              </div>
+              <div class="polaroid-tape"></div>
+            </div>
+            <div class="polaroid-card" data-img="./adsadsadsadsa.png" data-caption="" data-date="">
+              <div class="polaroid-img-wrapper">
+                <img src="./assets/adsadsadsadsa-C_8vn1OD.png" alt="Roblox 3" loading="lazy" />
+                <div class="polaroid-overlay">
+                  <span class="zoom-icon">🔍 Perbesar</span>
+                </div>
+              </div>
+              <div class="polaroid-tape"></div>
+            </div>
+            <div class="polaroid-card" data-img="./fasdadsadsadsa.png" data-caption="" data-date="">
+              <div class="polaroid-img-wrapper">
+                <img src="./assets/fasdadsadsadsa-C7m_5ZO0.png" alt="Roblox 4" loading="lazy" />
+                <div class="polaroid-overlay">
+                  <span class="zoom-icon">🔍 Perbesar</span>
+                </div>
+              </div>
+              <div class="polaroid-tape"></div>
+            </div>
+            <div class="polaroid-card" data-img="./fdsfsd.png" data-caption="" data-date="">
+              <div class="polaroid-img-wrapper">
+                <img src="./assets/fdsfsd-CFeQvNsC.png" alt="Roblox 5" loading="lazy" />
+                <div class="polaroid-overlay">
+                  <span class="zoom-icon">🔍 Perbesar</span>
+                </div>
+              </div>
+              <div class="polaroid-tape"></div>
+            </div>
+            <div class="polaroid-card" data-img="./Screenshot 2026-07-30 033145.png" data-caption="" data-date="">
+              <div class="polaroid-img-wrapper">
+                <img src="./assets/Screenshot%202026-07-30%20033145-BKOAOUgj.png" alt="Roblox 6" loading="lazy" />
+                <div class="polaroid-overlay">
+                  <span class="zoom-icon">🔍 Perbesar</span>
+                </div>
+              </div>
+              <div class="polaroid-tape"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page Navigation Buttons (Back & Next) -->
+        <div class="page-navigation-footer">
+          <button class="btn-secondary go-prev-btn" data-goto="2">
+            <span>← Kembali ke Surat Cinta</span>
+          </button>
+          <button class="btn-primary go-next-btn" data-goto="4">
+            <span>Lanjut ke Kode QR 📱 →</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: KODE QR & LINK SPESIAL -->
+    <section class="page-step" id="page-4">
+      <div class="qr-section">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Halaman 4 dari 4</span>
+          <h2 class="section-title">Kode QR & Link Spesial 📱✨</h2>
+          <div class="title-underline"></div>
+          <p class="section-desc">Scan kode QR di bawah ini atau klik tombol tautan di bawah foto untuk membuka link spesial!</p>
+        </div>
+
+        <div class="qr-container">
+          <div class="qr-card polaroid-card" data-img="./jejeuqi.png" data-caption="Kode QR Spesial untuk Jeje 💖" data-date="Scan Me ✨">
+            <div class="polaroid-img-wrapper qr-img-wrapper">
+              <img src="./assets/jejeuqi-EeGwic4J.png" alt="Kode QR Jeje" loading="lazy" />
+              <div class="polaroid-overlay">
+                <span class="zoom-icon">🔍 Perbesar QR</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">
+              <span class="caption-text">Kode QR Spesial 📱</span>
+              <span class="caption-date">Klik foto untuk memperbesar</span>
+            </div>
+            <div class="polaroid-tape"></div>
+          </div>
+
+          <div class="qr-link-box glass-card text-center">
+            <p class="qr-link-label">✨ Akses Langsung Tautan Website ✨</p>
+            <a href="https://mulyapamungkas321-blip.github.io/mulyajeje" target="_blank" rel="noopener noreferrer" class="qr-url-btn">
+              <span class="link-icon">🌐</span>
+              <span class="link-url-text">https://mulyapamungkas321-blip.github.io/mulyajeje</span>
+              <span class="link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Page Navigation Buttons (Back & Restart) -->
+        <div class="page-navigation-footer">
+          <button class="btn-secondary go-prev-btn" data-goto="3">
+            <span>← Kembali ke Galeri Foto</span>
+          </button>
+          <button class="btn-primary go-next-btn" data-goto="1">
+            <span>Ulangi Perjalanan 🌸</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL FOR GALLERY -->
+  <div class="lightbox-modal hidden" id="lightbox-modal">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <div class="lightbox-img-box">
+        <img src="" alt="Zoom Photo" id="lightbox-img" />
+      </div>
+      <div class="lightbox-details">
+        <h4 id="lightbox-caption">Caption Photo</h4>
+        <span id="lightbox-date">Date</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="footer-flower">
+      <img src="./assets/bungarmv-DETIXpQd.png" alt="Bunga Footer" class="footer-flower-img" />
+    </div>
+    <p class="footer-text">
+      Dibuat dengan segenap rasa cinta untuk Hari Girlfriend Nasional 🌿💖
+    </p>
+    <p class="footer-subtext">
+      Happy Girlfriend Day • Everyday with you is a gift ✨
+    </p>
+  </footer>
+
+</body>
+</html>
