@@ -1,4 +1,5 @@
 import confetti from 'canvas-confetti';
+import bgmFile from './BeautifullBazzii.mp3';
 
 // ==========================================
 // 1. PETAL & HEART CANVAS SYSTEM
@@ -140,13 +141,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const splashOverlay = document.getElementById('splash-overlay');
   const splashBtn = document.getElementById('splash-play-btn');
 
-  if (bgm && splashBtn && splashOverlay) {
-    splashBtn.addEventListener('click', () => {
-      bgm.loop = true;
-      bgm.play().catch(() => {});
-      splashOverlay.classList.add('hidden');
+  if (bgm) {
+    bgm.src = bgmFile;
+  }
+
+  function startMusic() {
+    if (!bgm) return;
+    bgm.loop = true;
+    bgm.play().then(() => {
+      if (splashOverlay) splashOverlay.classList.add('hidden');
+    }).catch((err) => {
+      console.log('Audio playback prevented:', err);
+      if (splashOverlay) splashOverlay.classList.add('hidden');
     });
   }
+
+  if (splashBtn) splashBtn.addEventListener('click', startMusic);
+  if (splashOverlay) splashOverlay.addEventListener('click', startMusic);
   // Header Step Tracker Click Handler
   const stepItems = document.querySelectorAll('.step-item');
   stepItems.forEach((item) => {
