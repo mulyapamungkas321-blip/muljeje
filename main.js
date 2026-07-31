@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const msg = noMessages[Math.min(noHoverCount, noMessages.length - 1)];
     if (proposalSubtitle) proposalSubtitle.textContent = msg;
-    if (proposalFooterHint) proposalFooterHint.innerHTML = `<span>💖 Halaman ini cuma nerima jawaban 'Yes, I do!' 🥰</span>`;
+    if (proposalFooterHint) proposalFooterHint.innerHTML = `<span>💖 Halaman ini cuma nerima jawaban 'Yes!' 🥰</span>`;
     noHoverCount++;
 
     if (proposalNoBtn) {

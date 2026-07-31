@@ -1178,6 +1178,10 @@ body {
     display: none;
   }
 
+  .proposal-buttons-wrapper .btn-text {
+    display: inline;
+  }
+
   .hero-section {
     padding-top: 20px;
   }
