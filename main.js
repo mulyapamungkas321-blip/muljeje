@@ -99,7 +99,49 @@ function triggerBurst(x, y) {
 // ==========================================
 // 3. SEQUENTIAL STEP NAVIGATION LOGIC
 // ==========================================
+let isProposalAccepted = false;
+let pendingTargetStep = 2;
+
+function openProposalModal(targetStep = 2) {
+  pendingTargetStep = targetStep;
+  const proposalModal = document.getElementById('proposal-modal');
+  const proposalBtnWrapper = document.getElementById('proposal-btn-wrapper');
+  const proposalSubtitle = document.getElementById('proposal-subtitle');
+  const proposalTitle = document.getElementById('proposal-title');
+  const proposalFooterHint = document.getElementById('proposal-footer-hint');
+
+  if (!proposalModal) return;
+
+  if (proposalBtnWrapper) {
+    proposalBtnWrapper.classList.remove('covering', 'fully-covered');
+  }
+  if (proposalSubtitle) {
+    proposalSubtitle.textContent = 'Jawab dengan jujur ya manis! 🥰✨';
+  }
+  if (proposalTitle) {
+    proposalTitle.innerHTML = `Before we move to the next page,<br><span class="highlight-pink">will you be my girlfriend? 💖</span>`;
+  }
+  if (proposalFooterHint) {
+    proposalFooterHint.innerHTML = `<span>🌸 Nggak boleh nolak ya, harus dimaafin dan diterima! 😜✨</span>`;
+  }
+
+  proposalModal.classList.remove('hidden');
+}
+
+function closeProposalModal() {
+  const proposalModal = document.getElementById('proposal-modal');
+  if (proposalModal) {
+    proposalModal.classList.add('hidden');
+  }
+}
+
 function goToPage(stepNum) {
+  // If moving to step 2 (Surat Cinta) and proposal not accepted yet, show proposal modal!
+  if (stepNum === 2 && !isProposalAccepted) {
+    openProposalModal(stepNum);
+    return;
+  }
+
   const pageSteps = document.querySelectorAll('.page-step');
   const stepItems = document.querySelectorAll('.step-item');
 
@@ -158,6 +200,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (splashBtn) splashBtn.addEventListener('click', startMusic);
   if (splashOverlay) splashOverlay.addEventListener('click', startMusic);
+
+  // Proposal Modal Interactivity Logic
+  const proposalYesBtn = document.getElementById('proposal-yes-btn');
+  const proposalNoBtn = document.getElementById('proposal-no-btn');
+  const proposalBtnWrapper = document.getElementById('proposal-btn-wrapper');
+  const proposalSubtitle = document.getElementById('proposal-subtitle');
+  const proposalTitle = document.getElementById('proposal-title');
+  const proposalFooterHint = document.getElementById('proposal-footer-hint');
+  const proposalBackdrop = document.getElementById('proposal-backdrop');
+
+  const noMessages = [
+    "Ehh?! Tombol Yes-nya kok makin gede & nutupin! 😳💖",
+    "Nggak bisa dipencet kan? Harus bilang YES! 😜💕",
+    "Kamu nggak bisa nolak aku hihi! 🥰✨",
+    "Tombol YES menutup segalanya! Hanya ada YES! 💖🌸"
+  ];
+
+  let noHoverCount = 0;
+
+  function coverNoButton() {
+    if (!proposalBtnWrapper) return;
+    proposalBtnWrapper.classList.add('covering', 'fully-covered');
+    
+    const msg = noMessages[Math.min(noHoverCount, noMessages.length - 1)];
+    if (proposalSubtitle) proposalSubtitle.textContent = msg;
+    if (proposalFooterHint) proposalFooterHint.innerHTML = `<span>💖 Halaman ini cuma nerima jawaban 'Yes, I do!' 🥰</span>`;
+    noHoverCount++;
+
+    if (proposalNoBtn) {
+      const rect = proposalNoBtn.getBoundingClientRect();
+      triggerBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    }
+  }
+
+  if (proposalNoBtn) {
+    proposalNoBtn.addEventListener('mouseenter', coverNoButton);
+    proposalNoBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      coverNoButton();
+    });
+    proposalNoBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      coverNoButton();
+      acceptProposal();
+    });
+  }
+
+  function acceptProposal() {
+    isProposalAccepted = true;
+    
+    confetti({
+      particleCount: 120,
+      spread: 100,
+      origin: { y: 0.5 },
+      colors: ['#F3A5B1', '#E06780', '#7C9A86', '#FFF', '#FF4E88']
+    });
+
+    if (proposalTitle) {
+      proposalTitle.innerHTML = `YAAAAY! 🎉💖<br><span class="highlight-pink">I Love You So Much! 🥰</span>`;
+    }
+    if (proposalSubtitle) {
+      proposalSubtitle.textContent = 'Aku seneng banget!! Makasih ya sayang! 💕 Yuk lanjut buka Surat Cinta spesial buat kamu 💌';
+    }
+    if (proposalFooterHint) {
+      proposalFooterHint.innerHTML = `<span>🌸 Menuju Surat Cinta dalam sekejap... ✨</span>`;
+    }
+
+    setTimeout(() => {
+      closeProposalModal();
+      goToPage(pendingTargetStep);
+    }, 1500);
+  }
+
+  if (proposalYesBtn) {
+    proposalYesBtn.addEventListener('click', acceptProposal);
+  }
+
+  if (proposalBackdrop) {
+    proposalBackdrop.addEventListener('click', () => {
+      if (!isProposalAccepted) {
+        if (proposalSubtitle) {
+          proposalSubtitle.textContent = 'Jawab dulu dong manis, jangan diklik luar modalnya! 🥺💖';
+        }
+      }
+    });
+  }
+
   // Header Step Tracker Click Handler
   const stepItems = document.querySelectorAll('.step-item');
   stepItems.forEach((item) => {
@@ -278,3 +407,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
   if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
 });
+

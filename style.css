@@ -1300,4 +1300,288 @@ body {
   transform: translate(3px, -3px);
 }
 
+/* ==========================================
+   GIRLFRIEND PROPOSAL MODAL STYLES
+   ========================================== */
+.proposal-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.proposal-modal-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.proposal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 20, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.proposal-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 480px;
+  padding: 36px 28px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 25px 60px -10px rgba(243, 165, 177, 0.45), 0 0 40px rgba(124, 154, 134, 0.2);
+  text-align: center;
+  overflow: hidden;
+  animation: modalPopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Floating Emojis */
+.proposal-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.floating-emoji {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  animation: emojiFloat 3.5s ease-in-out infinite alternate;
+}
+
+.floating-emoji.e1 { top: 15px; left: 20px; animation-delay: 0s; }
+.floating-emoji.e2 { top: 25px; right: 25px; animation-delay: 0.5s; }
+.floating-emoji.e3 { top: 55%; left: 15px; animation-delay: 1s; }
+.floating-emoji.e4 { top: 50%; right: 15px; animation-delay: 1.5s; }
+.floating-emoji.e5 { bottom: 20px; left: 25px; animation-delay: 0.8s; }
+.floating-emoji.e6 { bottom: 15px; right: 20px; animation-delay: 1.2s; }
+.floating-emoji.e7 { top: 120px; left: 10px; animation-delay: 1.8s; }
+.floating-emoji.e8 { top: 130px; right: 10px; animation-delay: 2.2s; }
+
+@keyframes emojiFloat {
+  0% { transform: translateY(0) rotate(-6deg) scale(0.95); }
+  100% { transform: translateY(-12px) rotate(6deg) scale(1.1); }
+}
+
+/* Header Badge */
+.proposal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--pink-100);
+  border: 1px solid var(--pink-300);
+  color: var(--pink-700);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* Center Avatar Box */
+.proposal-avatar-box {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--pink-100) 0%, var(--sage-100) 100%);
+  box-shadow: 0 10px 25px rgba(243, 165, 177, 0.35);
+}
+
+.avatar-ring-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed var(--pink-400);
+  animation: spinRing 12s linear infinite;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.proposal-flower-img,
+.proposal-img,
+#proposal-img {
+  width: 75px;
+  height: 75px;
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+  z-index: 1;
+  position: relative;
+}
+
+.pulse-anim {
+  animation: pulseAnim 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseAnim {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.proposal-sticker {
+  position: absolute;
+  font-size: 1.4rem;
+  animation: stickerBounce 1.5s ease-in-out infinite alternate;
+}
+
+.sticker-left {
+  left: -12px;
+  bottom: 10px;
+}
+
+.sticker-right {
+  right: -12px;
+  bottom: 10px;
+  animation-delay: 0.3s;
+}
+
+@keyframes stickerBounce {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-6px) scale(1.15); }
+}
+
+/* Title & Subtitle */
+.proposal-title {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--sage-900);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.proposal-subtitle {
+  font-size: 0.92rem;
+  color: var(--sage-700);
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Interactive Proposal Buttons Container */
+.proposal-buttons-wrapper {
+  position: relative;
+  min-height: 64px;
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: rgba(244, 248, 244, 0.8);
+  padding: 6px;
+  border: 1px dashed var(--pink-300);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.btn-proposal-yes {
+  background: linear-gradient(135deg, #F3A5B1 0%, #E06780 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 40px;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 22px rgba(224, 103, 128, 0.35);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex: 1;
+  min-height: 52px;
+  white-space: nowrap;
+  position: relative;
+  z-index: 5;
+}
+
+.btn-proposal-yes:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 30px rgba(224, 103, 128, 0.5);
+}
+
+.btn-proposal-no {
+  background: var(--sage-100);
+  color: var(--sage-700);
+  font-weight: 600;
+  border-radius: 40px;
+  border: 1px solid var(--sage-300);
+  padding: 14px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.35s ease;
+  flex: 1;
+  min-height: 52px;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* Covered State Logic: YES button expands and covers NO button completely */
+.proposal-buttons-wrapper.covering #proposal-yes-btn,
+.proposal-buttons-wrapper.fully-covered #proposal-yes-btn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  font-size: 1.2rem;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #FF4E88 0%, #E06780 100%);
+  box-shadow: 0 12px 35px rgba(255, 78, 136, 0.6);
+  animation: coverPulse 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes coverPulse {
+  0% { transform: scale(0.92); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.proposal-footer-hint {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  color: var(--sage-600);
+  font-weight: 500;
+}
+
+
 
